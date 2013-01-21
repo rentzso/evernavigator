@@ -1,4 +1,4 @@
-create user twitter identified by '';
+create user 'twitter'@'localhost' identified by '';
 
 create database twitterapi;
 grant all on twitterapi.* to twitter;
