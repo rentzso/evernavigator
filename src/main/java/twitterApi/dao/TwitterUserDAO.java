@@ -1,11 +1,7 @@
 package twitterApi.dao;
 
-import twitterApi.classes.Tweet;
 import twitterApi.classes.TwitterUser;
-
 import javax.servlet.http.HttpServletResponse;
-
-
 import java.util.List;
 
 public interface TwitterUserDAO {

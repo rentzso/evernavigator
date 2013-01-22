@@ -4,6 +4,9 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.HashMap;
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Repository;
 import org.apache.log4j.*;
 
 import twitterApi.classes.TwitterUser;
+import twitterApi.md5.MD5Converter;
 
 @Repository
 public class JDBCTwitterUserDAO  implements TwitterUserDAO{
@@ -25,7 +29,7 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 	private static Logger log = Logger.getLogger(JDBCTwitterUserDAO.class.getName());
 	
 	private final String GET_USER = 
-			"select realname, apikey " +
+			"select realname, hashkey, salts " +
 			"from users where username = :username";
 	
 	private final String GET_FOLLOWED =
@@ -128,7 +132,8 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 					public Map<String, String> mapRow(ResultSet rs, int i) throws SQLException {
 						Map<String, String> userProperties = new HashMap<String, String>(2);
 						userProperties.put("realname", rs.getString("realname"));
-						userProperties.put("apikey", rs.getString("apikey"));
+						userProperties.put("hashkey", rs.getString("hashkey"));
+						userProperties.put("salts", rs.getString("salts"));
 						return userProperties;
 					}
 				} 
@@ -138,7 +143,19 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
-		if (userProperties.get("apikey").equals(apiKey)){
+		boolean checkKey = false;
+		try{
+			checkKey = MD5Converter.check(apiKey, userProperties.get("salts"), userProperties.get("hashkey"));
+		} catch (NoSuchAlgorithmException e){
+			log.error(e.getMessage());
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			return null;
+		} catch (UnsupportedEncodingException e){
+			log.error(e.getMessage());
+			response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+			return null;
+		}
+		if (checkKey){
 			TwitterUser user = new TwitterUser();
 			user.setUsername(username);
 			user.setRealname(userProperties.get("realname"));

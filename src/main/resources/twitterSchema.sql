@@ -8,7 +8,8 @@ use twitterapi;
 create table users(
   username VARCHAR(50) NOT NULL PRIMARY KEY,
   realname VARCHAR(50),
-  apikey VARCHAR(16)
+  hashkey VARCHAR(32),
+  salts VARCHAR(60)
   );
   
 create table tweets(
