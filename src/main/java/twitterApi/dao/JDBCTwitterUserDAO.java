@@ -101,8 +101,11 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 		SqlParameterSource namedParameters = 
 				new MapSqlParameterSource("follower", user.getUsername())
 		                         .addValue("username", followed);
-		return this.namedParameterJdbcTemplate.update(FOLLOW, 
-				namedParameters);
+		try {
+			return this.namedParameterJdbcTemplate.update(FOLLOW, namedParameters);
+		} catch (Exception e){
+			return 0;
+		}
 	}
 	
 	public int unfollowUser(TwitterUser user, String followed){
