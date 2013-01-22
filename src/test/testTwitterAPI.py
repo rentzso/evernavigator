@@ -4,6 +4,8 @@ import json
 
 
 baseurl = 'http://ec2-79-125-43-66.eu-west-1.compute.amazonaws.com:8080/twitter-api-1.0.0/twitter/'
+##baseurl = 'http://localhost:8080/twitter-api-1.0.0/twitter/'
+
 
 tweets_req = 'tweets'
 follow_req = 'follow'
