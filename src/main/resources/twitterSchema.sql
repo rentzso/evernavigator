@@ -26,7 +26,13 @@ create table followers (
 
 alter table followers
 ADD CONSTRAINT pk_pair 
-PRIMARY KEY (username, follower);
+primary KEY (username, follower);
 
 alter table tweets
 ADD INDEX username(username);
+
+alter table followers
+add index follower(follower);
+
+alter table tweets
+add index username(username);

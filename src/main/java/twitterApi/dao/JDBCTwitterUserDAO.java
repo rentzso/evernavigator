@@ -18,7 +18,6 @@ import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import org.apache.log4j.*;
 
 import twitterApi.classes.TwitterUser;
 import twitterApi.md5.MD5Converter;
@@ -49,7 +48,7 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 			"username = :username " +
 			"and follower = :follower";
 			
-	
+	/*
 	private static final class TwitterUserMapper implements RowMapper<TwitterUser> {
 
 	    public TwitterUser mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -58,7 +57,7 @@ public class JDBCTwitterUserDAO  implements TwitterUserDAO{
 	        user.setRealname(rs.getString("realname"));
 	        return user;
 	    }        
-	}	
+	}*/
 
 	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
