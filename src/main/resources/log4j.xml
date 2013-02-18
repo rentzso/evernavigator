@@ -13,11 +13,11 @@
 
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 
 	<logger name="org.springframework.beans">
-		<level value="info" />
+		<level value="debug" />
 	</logger>
 	
 	<logger name="org.springframework.context">
@@ -28,11 +28,11 @@
 		<level value="info" />
 	</logger>
 	
-	<logger name="twitterApi.classes">
+	<logger name="test">
 		<level value="info" />
 	</logger>
 	
-	<logger name="twitterApi.dao">
+	<logger name="evernote">
 		<level value="info" />
 	</logger>
 
