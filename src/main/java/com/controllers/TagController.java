@@ -1,4 +1,4 @@
-package com.classes;
+package com.controllers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import evernote.MongoTagsDAO;
+import com.classes.visualization.Graph;
+import com.classes.visualization.Link;
+import com.dao.MongoTagsDAO;
+
 
 @Component
 @RequestMapping(value="/")

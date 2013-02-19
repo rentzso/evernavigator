@@ -1,7 +1,10 @@
-package com.classes;
+package com.classes.visualization;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import com.classes.data.RelatedTag;
+import com.classes.data.Tag;
 
 public class NodeFactory{
 	// map from tag to integer to identify nodes

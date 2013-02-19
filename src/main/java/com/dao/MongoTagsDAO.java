@@ -1,4 +1,4 @@
-package evernote;
+package com.dao;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
@@ -9,9 +9,9 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.classes.Graph;
-import com.classes.NodeFactory;
-import com.classes.Tag;
+import com.classes.data.Tag;
+import com.classes.visualization.Graph;
+import com.classes.visualization.NodeFactory;
 
 @Repository
 public class MongoTagsDAO implements TagsDAO{

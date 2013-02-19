@@ -1,4 +1,4 @@
-package evernote;
+package evernote.tags;
 
 import java.util.*;
 import java.io.*;

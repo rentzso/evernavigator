@@ -1,6 +1,6 @@
-package evernote;
+package com.dao;
 
-import com.classes.Graph;
+import com.classes.visualization.Graph;
 
 public interface TagsDAO {
 	public Graph getGraphForUser(int userId);

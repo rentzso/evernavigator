@@ -1,7 +1,11 @@
-package com.classes;
+package com.classes.visualization;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.classes.data.Note;
+import com.classes.data.RelatedTag;
+import com.classes.data.Tag;
 
 class Node {
 	int id;

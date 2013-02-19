@@ -1,13 +1,13 @@
-package com.classes;
+package com.classes.data;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class RelatedTag {
-	String guid;
-	String tag;
-	int count;
+	public String guid;
+	public String tag;
+	public int count;
 	
 	public RelatedTag(String tag, String guid, int count){
 		this.tag = tag;

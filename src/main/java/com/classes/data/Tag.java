@@ -1,4 +1,4 @@
-package com.classes;
+package com.classes.data;
 
 import java.util.*;
 

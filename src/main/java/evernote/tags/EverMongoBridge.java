@@ -1,4 +1,4 @@
-package evernote;
+package evernote.tags;
 
 import java.net.UnknownHostException;
 import java.util.*;
@@ -21,7 +21,7 @@ import com.evernote.edam.notestore.NoteMetadata;
 import com.evernote.thrift.TException;
 
 
-import com.classes.*;
+import com.classes.data.*;
 
 public class EverMongoBridge {
 	private EvernoteHandle handle;
